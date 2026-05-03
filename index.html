@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Profile - Trần Thị Thuỳ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee, #fcd5ce);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* nền hoa mờ */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 10%);
+    background-size: 60px 60px;
+    animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-200px,-200px); }
+}
+
+/* container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* header */
+.header {
+    text-align: center;
+}
+
+.icon-circle {
+    width: 110px;
+    height: 110px;
+    margin: auto;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    box-shadow: 0 0 25px #ff9a9e;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* section */
+.section {
+    margin-top: 25px;
+}
+
+.section h2 {
+    border-left: 5px solid #ffd6e0;
+    padding-left: 10px;
+}
+
+/* tag */
+.tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #ff9a9e;
+    transform: scale(1.1);
+}
+
+/* box */
+.box {
+    background: rgba(255,255,255,0.25);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+/* hoa rơi */
+.flower {
+    position: fixed;
+    top: -10px;
+    font-size: 22px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1;}
+    100% { transform: translateY(100vh); opacity: 0;}
+}
+
+/* quote */
+.quote {
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="icon-circle">🌷</div>
+        <div class="name">Trần Thị Thuỳ</div>
+        <p>Lớp: 12C1</p>
+    </div>
+
+    <!-- GIỚI THIỆU -->
+    <div class="section">
+        <h2>👤 Giới thiệu</h2>
+        <div class="box">
+            Mình là một học sinh lớp 12, yêu thích sáng tạo và luôn cố gắng phát triển bản thân mỗi ngày.
+        </div>
+    </div>
+
+    <!-- SỞ THÍCH -->
+    <div class="section">
+        <h2>💖 Sở thích</h2>
+        <div class="tag">🎬 Xem phim</div>
+        <div class="tag">🎮 Chơi game</div>
+        <div class="tag">✈️ Du lịch</div>
+        <div class="tag">🍰 Làm bánh</div>
+    </div>
+
+    <!-- KỸ NĂNG -->
+    <div class="section">
+        <h2>✨ Kỹ năng</h2>
+        <div class="tag">🎨 Chỉnh sửa ảnh</div>
+    </div>
+
+    <!-- TÍNH CÁCH -->
+    <div class="section">
+        <h2>🌸 Tính cách</h2>
+        <div class="tag">Có trách nhiệm</div>
+        <div class="tag">Vui tính</div>
+        <div class="tag">Hài hước</div>
+    </div>
+
+    <!-- ĐỊNH HƯỚNG -->
+    <div class="section">
+        <h2>🎯 Định hướng</h2>
+        <div class="box">
+            Ngành Quản trị kinh doanh - Trường UEL
+        </div>
+    </div>
+
+    <!-- MỤC TIÊU -->
+    <div class="section">
+        <h2>🚀 Mục tiêu</h2>
+        <div class="box">
+            Đỗ đại học, tốt nghiệp và đạt được thành công trong tương lai
+        </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="section">
+        <h2>💬 Châm ngôn</h2>
+        <div class="quote">• Cố gắng hôm nay – thành công ngày mai.</div>
+        <div class="quote">• Luôn tiến về phía trước.</div>
+        <div class="quote">• Dream big – Work hard.</div>
+    </div>
+
+</div>
+
+<script>
+/* hoa rơi */
+setInterval(() => {
+    let flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (4 + Math.random() * 5) + "s";
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 8000);
+}, 500);
+</script>
+
+</body>
+</html>
